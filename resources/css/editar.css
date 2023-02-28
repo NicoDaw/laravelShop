@@ -1,0 +1,9 @@
+.casilla {
+    display: flex;
+    height: 100px;
+    width: 1000px;
+    background-color: rgb(255, 236, 208);
+    padding: 10px;
+    align-items: center;
+    margin: 10px
+}
