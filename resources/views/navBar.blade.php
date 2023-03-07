@@ -17,6 +17,10 @@
             <li><a class="navBtn" href="/eliminarProductos">Gestión de Productos</a></li>
             <li><a class="navBtn" href="/añadirCategoriaPage">Gestión de Categorías</a></li>
             {{-- <li><a class="navBtn" href="#">Perfil</a></li> --}}
+            <a href="/loginPage"><img
+                    src="https://png.pngtree.com/png-clipart/20210915/ourmid/pngtree-user-avatar-placeholder-black-png-image_3918427.jpg"
+                    class="loginImage" /></a>
+
         </ul>
     </div>
     <div class="contenido">

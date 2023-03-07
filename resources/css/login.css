@@ -1,0 +1,58 @@
+.loginPageImage {
+    border-radius: 2000px;
+    -webkit-border-radius: 2000px;
+    -moz-border-radius: 2000px;
+    -ms-border-radius: 2000px;
+    -o-border-radius: 2000px;
+    height: 800px;
+    width: 800px;
+    position: absolute;
+    left: -200px;
+    top: -100px;
+}
+
+.formContainer {
+    right: 200px;
+    top: 120px;
+    position: absolute;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputStyle {
+    width: 200px;
+    height: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.labelStyle {
+    font-size: 25px;
+}
+
+.loginButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 120px;
+    align-self: center;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+}
+
+.registerButton {
+    background-color: rgb(59, 59, 254);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border: 1px solid black;
+    padding: 2px;
+    color: white;
+}

@@ -34,3 +34,6 @@ Route::get('/eliminarProductos', [productoController::class, 'eliminarProducto']
 Route::get('/editarProductosPage/{id}', [productoController::class, 'editarProducto']);
 Route::post('/actualizarProducto/{id}', [productoController::class, 'updateProduct']);
 Route::get('/eliminarProducto/{id}', [productoController::class, 'deleteProduct']);
+Route::get('/loginPage', function () {
+    return view('loginPage');
+});
