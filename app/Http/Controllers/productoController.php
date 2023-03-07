@@ -20,10 +20,17 @@ class productoController extends Controller
         $objetoProducto = Producto::all();
         return view('eliminarProductos', ['objetoProducto' => $objetoProducto]);
     }
-    public function editarProducto(Request $id)
+    public function editarProducto(Request $request)
     {
-        $objetoProducto = Producto::get('*', $id->id);
-        return view('editarProductos', ['objetoProducto' => $objetoProducto]);
+        $objetoProducto = Producto::join('categorias', 'categorias.id', '=', 'productos.id_categoria')
+            ->select('productos.*', 'categorias.nombreCategoria')->where('productos.id', '=', $request->id)->get();
+        $objetoCategorias = Categorias::all();
+        // $objetoProducto = Producto::get('*', $id->id);
+        if ($objetoProducto) {
+            return view('editarProductos', ['objetoProducto' => $objetoProducto, 'objetoCategorias' => $objetoCategorias]);
+        } else {
+            return response('Product not found.', 404);
+        }
     }
     public function addProduct(Request $request)
     {
@@ -64,6 +71,7 @@ class productoController extends Controller
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
         $producto->image = $request->image;
+        $producto->id_categoria = $request->categorias_id;
         $producto->save();
         return redirect()->to('eliminarProductos');
     }

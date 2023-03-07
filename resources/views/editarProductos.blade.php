@@ -1,13 +1,16 @@
 @extends('navBar')
 @section('content')
     <div>
+        {{-- <div>{{ $objetoProducto }}</div> --}}
         <div
-            style="display: flex; height: 100px; width: 1000px; background-color: rgb(255, 236, 208); padding: 10px; align-items: center; margin: 10px; border: 1px solid black">
+            style="display: flex; height: 100px; width: 800px; background-color: rgb(255, 236, 208); padding: 10px; align-items: center; margin: 10px; border: 1px solid black">
             <div style="margin-right: 10px">Id:{{ $objetoProducto[0]->id }}</div>
-            <img src="{{ $objetoProducto[0]->image }}" width="100" style="border: 1px solid black" />
+            <img src="{{ $objetoProducto[0]->image }}" width="100"
+                style="border: 1px solid black;background-color: white" />
             <div style="margin: 5px">{{ $objetoProducto[0]->nombreProducto }}</div>
             <div style="margin: 5px; width: 700px">{{ $objetoProducto[0]->descripcion }}</div>
             <div style="margin: 5px">{{ $objetoProducto[0]->precio }}€</div>
+
         </div>
         <div>
             <form action="/actualizarProducto/{{ $objetoProducto[0]->id }}" method="POST">
@@ -28,6 +31,13 @@
                             value="{{ $objetoProducto[0]->image }}" name="image"
                             style="height: 20px; margin-left: 6px" />
                     </div>
+                    <select name="categorias_id" class="editarSelector">
+                        <option value=""></option>
+                        @foreach ($objetoCategorias as $categoria)
+                            <option value="{{ $categoria->id }}" name="categoriaId">
+                                {{ $categoria->nombreCategoria }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div style="display: flex;">
                     <p>Descripcion: </p>
@@ -40,4 +50,6 @@
             </form>
         </div>
     </div>
+
+    {{-- <div>{{ $objetoProducto[1]}}</div> --}}
 @endsection

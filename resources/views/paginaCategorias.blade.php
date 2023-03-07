@@ -29,7 +29,6 @@
                     @endforeach
                 </div>
                 @csrf
-
             </form>
         </div>
     </div>

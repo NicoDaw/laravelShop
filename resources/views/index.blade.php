@@ -1,8 +1,8 @@
 @extends('navBar')
 @section('content')
-    <div style="width: 100vw">
+    <div style="">
         @yield('nav')
-        <div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: space-around">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around">
             @foreach ($objetoProducto as $producto)
                 <div style="margin: 30px">
                     <div

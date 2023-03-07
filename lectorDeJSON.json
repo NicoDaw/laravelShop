@@ -1,0 +1,46 @@
+[
+    {
+        "id": 2,
+        "nombreProducto": "Colonos de Cat\u00e1n",
+        "descripcion": "Dise\u00f1ado por Klaus Teuber en 1995 y ganador del Spiel des Jahres, ha sido el juego de mesa que ha revolucionado los juegos de mesa modernos. Este juego funciona con un sistema de comercio, donde los jugadores pueden intercambiar cartas de su mano entre ellos para construir carreteras, pueblos y ciudades.",
+        "precio": 45,
+        "image": "https:\/\/devirinvestments.s3.eu-west-1.amazonaws.com\/img\/catalog\/product\/8436017220100-1200-face3d-copy.jpg",
+        "id_categoria": 2,
+        "created_at": "2023-02-09T16:19:57.000000Z",
+        "updated_at": "2023-02-09T16:19:57.000000Z",
+        "nombreCategoria": "Cl\u00e1sicos"
+    },
+    {
+        "id": 2,
+        "nombreProducto": "Colonos de Cat\u00e1n",
+        "descripcion": "Dise\u00f1ado por Klaus Teuber en 1995 y ganador del Spiel des Jahres, ha sido el juego de mesa que ha revolucionado los juegos de mesa modernos. Este juego funciona con un sistema de comercio, donde los jugadores pueden intercambiar cartas de su mano entre ellos para construir carreteras, pueblos y ciudades.",
+        "precio": 45,
+        "image": "https:\/\/devirinvestments.s3.eu-west-1.amazonaws.com\/img\/catalog\/product\/8436017220100-1200-face3d-copy.jpg",
+        "id_categoria": 2,
+        "created_at": "2023-02-09T16:19:57.000000Z",
+        "updated_at": "2023-02-09T16:19:57.000000Z",
+        "nombreCategoria": "Cl\u00e1sicos"
+    },
+    {
+        "id": 2,
+        "nombreProducto": "Diamant",
+        "descripcion": "Diamant es un juego de push your luck creado por Bruno Faidutti y Alan R. Moon, en el que deberemos representar a exploradores que desean quedarse con la mayor cantidad de diamantes posible.",
+        "precio": 30,
+        "image": "https:\/\/devirinvestments.s3.eu-west-1.amazonaws.com\/img\/catalog\/product\/8436017224702-1200-face3d.jpg",
+        "id_categoria": 2,
+        "created_at": "2023-02-09T16:19:57.000000Z",
+        "updated_at": "2023-02-09T16:19:57.000000Z",
+        "nombreCategoria": "Cl\u00e1sicos"
+    },
+    {
+        "id": 6,
+        "nombreProducto": "Slay The Spire",
+        "descripcion": "Slay the Spire: The Board Game is a cooperative deckbuilding adventure. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and finally become strong enough to Slay the Spire!",
+        "precio": 140,
+        "image": "https:\/\/cf.geekdo-images.com\/IUnanggYkTEHu-z3jI2AAA__opengraph\/img\/iTEZ15-2MIkfhCd3gUXarYC19u4=\/fit-in\/1200x630\/filters:strip_icc()\/pic6572514.png",
+        "id_categoria": 6,
+        "created_at": "2023-02-09T16:33:44.000000Z",
+        "updated_at": "2023-02-09T16:33:44.000000Z",
+        "nombreCategoria": "KickStarter"
+    }
+]
