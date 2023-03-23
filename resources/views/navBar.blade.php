@@ -21,12 +21,12 @@
                     src="https://png.pngtree.com/png-clipart/20210915/ourmid/pngtree-user-avatar-placeholder-black-png-image_3918427.jpg"
                     class="loginImage" /></a>
 
+
         </ul>
     </div>
     <div class="contenido">
-        @yield('content')
+        {{-- @yield('content') --}}
     </div>
-
 </body>
 
 </html>

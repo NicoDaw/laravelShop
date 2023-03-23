@@ -1,6 +1,6 @@
-@extends('navBar')
+@extends('dashboard')
 @section('content')
-    <div style="width: 100vw; display: flex; justify-content: center">
+    <div style="width: 100vw; display: flex; justify-content: center; margin-top: 5vh">
         <div style="width: 60%; background-color: rgb(237, 248, 197); padding: 20px">
             <form action="/añadirProducto" method="POST">
                 <p

@@ -1,0 +1,18 @@
+.añadirProductoBtn {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    font-weight: bold;
+}
+
+.añadirProductoBtn:hover {
+    cursor: pointer;
+    border-color: rgb(255, 68, 68);
+    color: rgb(255, 68, 68);
+}

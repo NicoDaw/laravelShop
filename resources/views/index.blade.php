@@ -1,12 +1,12 @@
-@extends('navBar')
+@extends('dashboard')
 @section('content')
+    @embedstyles('C:\xampp\htdocs\laravel\proyecto1\resources\css\productos.css')
     <div style="">
-        @yield('nav')
         <div style="display: flex; flex-wrap: wrap; justify-content: space-around">
             @foreach ($objetoProducto as $producto)
                 <div style="margin: 30px">
                     <div
-                        style="height: 300px; width: 200px; border: 1px solid black; border-radius: 12px; display: flex; justify-content: center; align-items: center; flex-direction: column">
+                        style="height: 380px; width: 250px; border: 1px solid black; border-radius: 12px; display: flex; justify-content: center; align-items: center; flex-direction: column">
 
                         <img src="{{ $producto->image }}" width="100" style="border: 1px solid rgb(202, 202, 202)" />
                         <div>
@@ -19,6 +19,9 @@
                             <p style="font-size: 10px; text-align: justify; gap: 2px">{{ $producto->descripcion }}</p>
                         </div>
                         <div><span style="font-size: 15px">{{ $producto->precio }} €</span></div>
+                        <div class="btnAñadirContainer"><a href="añadirProductoCarrito" class="btnAñadir">
+                                <p>Añadir</p>
+                            </a></div>
                     </div>
                 </div>
             @endforeach
