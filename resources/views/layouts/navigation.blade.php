@@ -1,3 +1,7 @@
+@php
+    $controller = new App\Http\Controllers\productoController();
+@endphp
+@embedstyles('C:\xampp\htdocs\laravel\proyecto1\resources\css\navigation.css')
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100;" style="background-color: rgb(146, 145, 145)">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,8 +39,15 @@
                 @auth
                     <div
                         style="background-color: white; border-radius: 50px; min-width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; margin: 20px">
-                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/9357/9357373.png"
-                                style="width: 20px; "></i></a>
+                        <a href="{{ route('iracarrito') }}">
+                            <img src="https://cdn-icons-png.flaticon.com/512/9357/9357373.png" style="width: 20px; " />
+
+                        </a>
+                        @if ($controller->getCartItemCount() > 0)
+                            <div class="cart-badge" {{-- style="background-color: red; border-radius: 50%; width: 20px; height: 20px; color: white; font-size: 12px; display: flex; justify-content: center; align-items: center; position: absolute; right: 0; top: 0;" --}}>
+                                {{ $controller->getCartItemCount() }}
+                            </div>
+                        @endif
                     </div>
 
                     <x-dropdown align="right" width="48">

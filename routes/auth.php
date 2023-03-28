@@ -59,7 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/editarProductosPage/{id}', [productoController::class, 'editarProducto']);
     Route::post('/actualizarProducto/{id}', [productoController::class, 'updateProduct']);
     Route::get('/eliminarProducto/{id}', [productoController::class, 'deleteProduct']);
-
+    Route::get('/irCarrito', [productoController::class, 'irCarritoPage'])->name('iracarrito');
+    Route::get('/deleteCartItem/{id}', [productoController::class, 'deleteItem']);
+    //AUTH ROUTES
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
 

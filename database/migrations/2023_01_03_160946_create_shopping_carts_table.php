@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shopping_carts', function (Blueprint $table) {
+        Schema::create('carritos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('idProducto');
             $table->foreign('idProducto')->references('id')->on('productos');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->timestamps();
         });
-        Schema::rename('shopping_carts', 'carritos');
+        Schema::rename('carritos', 'carritos');
     }
 
     /**
@@ -32,7 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::rename('carritos', 'shopping_carts');
-        Schema::dropIfExists('shopping_carts');
+        Schema::rename('carritos', 'carritos');
+        Schema::dropIfExists('carritos');
     }
 };

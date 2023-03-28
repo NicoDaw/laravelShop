@@ -6,10 +6,20 @@
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    background-color: rgb(68, 68, 255);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    color: black
+}
+
+.btnAñadir:hover {
+    background-color: rgb(255, 68, 68);
+    color: white;
+    cursor: pointer;
 }
 
 .btnAñadirContainer {
