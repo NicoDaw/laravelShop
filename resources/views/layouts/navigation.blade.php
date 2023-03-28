@@ -34,7 +34,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @auth
                     <div
-                        style="background-color: white; border-radius: 50px; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; margin: 20px">
+                        style="background-color: white; border-radius: 50px; min-width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; margin: 20px">
                         <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/9357/9357373.png"
                                 style="width: 20px; "></i></a>
                     </div>

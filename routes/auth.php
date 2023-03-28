@@ -47,7 +47,7 @@ Route::get('/añadirCategoriaPage', [productoController::class, 'añadirCategori
 
 Route::middleware('auth')->group(function () {
     // Route::get('/productos', [productoController::class, 'pintaProductos'])->name('productos');
-    Route::get('/añadirProductoCarrito', [productoController::class, 'añadeProductoCarrito']);
+    Route::get('/añadirProductoCarrito/{id}', [productoController::class, 'añadeProductoCarrito']);
     Route::get('/añadirProductoPage', function () {
         $categorias = Categorias::all();
         return view('addProduct', ['categorias' => $categorias]);

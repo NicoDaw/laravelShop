@@ -19,9 +19,14 @@
                             <p style="font-size: 10px; text-align: justify; gap: 2px">{{ $producto->descripcion }}</p>
                         </div>
                         <div><span style="font-size: 15px">{{ $producto->precio }} €</span></div>
-                        <div class="btnAñadirContainer"><a href="añadirProductoCarrito" class="btnAñadir">
-                                <p>Añadir</p>
-                            </a></div>
+                        @auth
+                            <div class="btnAñadirContainer">
+                                <a href="/añadirProductoCarrito/{{ $producto->id }}" class="btnAñadir">
+                                    <p>Añadir</p>
+                                </a>
+                            </div>
+                        @endauth
+
                     </div>
                 </div>
             @endforeach

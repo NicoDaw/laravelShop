@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Categorias;
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Carrito;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class productoController extends Controller
 {
@@ -80,5 +83,28 @@ class productoController extends Controller
         $categoria = Categorias::where('id', $r->id);
         $categoria->delete();
         return redirect()->to('añadirCategoriaPage');
+    }
+    public function añadeProductoCarrito(Request $r)
+    {
+        $userId = auth()->user()->id;
+        $producto = Producto::find($r->id);
+        $carritoActual = Carrito::where('idUser', $userId)->get();
+        if ($producto) {
+            if ($carritoActual->idUser == $userId && $carritoActual->idProducto == $producto->id) {
+                $añadirCantidadCarrito = Carrito::where('idUser', $userId)->where($carritoActual->idProducto);
+                $añadirCantidadCarrito->cantidad += 1;
+            }
+            $carrito = new Carrito;
+            $carrito->idUser = $userId;
+            $carrito->idProducto = $producto->id;
+            $carrito->cantidad = 1;
+            $carrito->save();
+
+            return redirect()->to('productos');
+        } else {
+            return 'There was an error on selecting the product';
+        }
+
+        return redirect()->to('productos');
     }
 }
