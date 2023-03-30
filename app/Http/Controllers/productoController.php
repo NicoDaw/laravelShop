@@ -7,19 +7,32 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Carrito;
 use App\Models\User;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 
 
 class productoController extends Controller
 {
     public function pintaProductos()
     {
-        $objetoProducto = Producto::orderBy('precio', 'asc')->get();
-        // return view('index', ['objetoProducto' => $objetoProducto]);
-        return view('index', ['objetoProducto' => $objetoProducto]);
-        // response(['response' => $objetoProducto]);
+        $productos = Producto::orderBy('precio', 'asc')->get();
+        $ratings = [];
+
+        foreach ($productos as $producto) {
+            $rating = $producto->ratings()->where('user_id', auth()->id())->first();
+            if ($rating) {
+                $ratings[$producto->id] = $producto->ratings()->avg('rating');
+            } else {
+                $ratings[$producto->id] = null;
+            }
+        }
+
+        return view('index', compact('productos', 'ratings'));
     }
+
     public function eliminarProducto()
     {
         $objetoProducto = Producto::all();
@@ -135,5 +148,62 @@ class productoController extends Controller
     {
         $cart = Carrito::where('idUser', auth()->user()->id)->get();
         return $cart->sum('cantidad');
+    }
+
+    //PAGO CON STRIPE
+    public function initiateCheckout()
+    {
+        Stripe::setApiKey('sk_test_51Mqj0jFG5tbfcoHO4wNIwHLh95RbeBZwUYs8UHDjeWgWY1FAimNWZW2MZVyVfrX2KCxVonNZsm4zG9GwGifrM4Gn00MtDJjtiF');
+        // Devuelvo todos los items carrito de la database
+        $producto =  Carrito::with('product')->where('idUser', auth()->user()->id)->get();
+        // Calculate the total amount of the cart
+        $totalAmount = 0;
+        foreach ($producto as $item) {
+            $totalAmount += $item->product->precio * $item->cantidad;
+        }
+
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'currency' => 'eur',
+                        'product_data' => [
+                            'name' => 'Compra en Tabletop Games',
+                        ],
+                        'unit_amount' => $totalAmount * 100,
+                    ],
+                    'quantity' => 1,
+                ],
+            ],
+            'mode' => 'payment',
+            'success_url' => route('succeedPayment'),
+            'cancel_url' => route('deniedPayment'),
+        ]);
+
+        return redirect()->to($session->url);
+    }
+
+    public function succeedPayment()
+    {
+        $user = User::find(auth()->user()->id);
+        $user->carritos()->delete();
+        return view('succeedPayment');
+    }
+
+    public function deniedPayment()
+    {
+        return view('deniedPayment');
+    }
+    public function store(Request $request)
+    {
+        $rating = new Rating([
+            'product_id' => $request->get('product_id'),
+            'user_id' => $request->user()->id,
+            'rating' => $request->get('rating', 0)
+        ]);
+        $rating->save();
+
+        return redirect()->to('productos');
     }
 }

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->timestamps();
         });
-        Schema::rename('carritos', 'carritos');
+        // Schema::rename('carritos', 'carritos');
     }
 
     /**
@@ -32,7 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::rename('carritos', 'carritos');
+        // Schema::rename('carritos', 'carritos');
         Schema::dropIfExists('carritos');
     }
 };

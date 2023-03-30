@@ -6,8 +6,8 @@
         <?php foreach($carritoActual as $item): ?>
         <div class="product">
             <div style="imgContainer">
-                <img style="width: 120px" src="<?php echo $item['product']['image']; ?>" alt="<?php echo $item['product']['nombreProducto']; ?>">
-                <h3 style="text-align: center;"><?php echo $item['product']['nombreProducto']; ?></h3>
+                <img style="width: 120px; border-radius: 4px" src="<?php echo $item['product']['image']; ?>" alt="<?php echo $item['product']['nombreProducto']; ?>">
+                <h3 style="text-align: center; font-size: 12px"><?php echo $item['product']['nombreProducto']; ?></h3>
             </div>
             <div class="quantity">
                 <label for="quantity-<?php echo $item['idProducto']; ?>">Cantidad:</label>
@@ -31,5 +31,9 @@
         <span>Total:</span>
         <span>€<?php echo $total; ?></span>
     </div>
+    <div class="checkoutContainer">
+        <a class="checkoutBtn" href="{{ route('checkout') }}">Checkout</a>
+    </div>
+
     @csrf
 @endsection()

@@ -23,4 +23,8 @@ class Producto extends Model
     {
         return $this->belongsToMany(Carrito::class);
     }
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class, 'product_id');
+    }
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <title>Document</title>
     @embedstyles('C:\xampp\htdocs\laravel\proyecto1\resources\css\login.css')
 </head>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <body style="overflow: hidden">
     <div style="width: 50vw">
@@ -50,6 +52,11 @@
                         <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                     </label>
                 </div>
+                <div style="display: flex; flex-direction: column; align-items: center">
+                    <!-- Captcha -->
+                    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                    <x-input-error :messages="$errors->get('g-recaptcha-response')" class="mt-2" />
+                </div>
 
                 <div class="flex items-center justify-end mt-4">
                     @if (Route::has('password.request'))
@@ -58,21 +65,24 @@
                             {{ __('Forgot your password?') }}
                         </a>
                     @endif
-
                     <x-primary-button class="ml-3">
                         {{ __('Log in') }}
                     </x-primary-button>
+
+
                 </div>
+
             </form>
+            <div style="display: flex; justify-content: center; margin-left: 10px"><span
+                    style="text-align: center">or</span></div>
+
+            <div class="inputsContainer">
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+                    style="align-self: center"><input type="submit" class="loginButton registerButton "
+                        value="REGISTER"></a>
+            </div>
         </x-guest-layout>
-        <div style="display: flex; justify-content: center"><span style="text-align: center">or</span></div>
 
-        <div class="inputsContainer">
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
-                style="align-self: center"><input type="submit" class="loginButton registerButton "
-                    value="REGISTER"></a>
-
-        </div>
     </div>
 
 

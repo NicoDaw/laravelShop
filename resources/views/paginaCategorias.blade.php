@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
     <div style="width: 100vw; display: flex; justify-content: center; margin-top: 10px; ">
-        <div style="width: 60%; background-color: rgb(255, 214, 214); border-radius: 12px; padding: 10px">
+        <div style="width: 60%; background-color: rgb(255, 121, 121); border-radius: 12px; padding: 10px">
             <form action="/añadirCategoria" method="POST">
                 @auth
                     @if (Auth::user()->role == 'admin')

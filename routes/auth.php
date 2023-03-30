@@ -61,6 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/eliminarProducto/{id}', [productoController::class, 'deleteProduct']);
     Route::get('/irCarrito', [productoController::class, 'irCarritoPage'])->name('iracarrito');
     Route::get('/deleteCartItem/{id}', [productoController::class, 'deleteItem']);
+    Route::get('/pagar', [productoController::class, 'initiateCheckout'])->name('checkout');
+    Route::get('/succeedPayment', [productoController::class, 'succeedPayment'])->name('succeedPayment');
+    Route::get('/deniedPayment', [productoController::class, 'deniedPayment'])->name('deniedPayment');
+    Route::post('/ratings', [productoController::class, 'store'])->name('ratings.store');
     //AUTH ROUTES
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');

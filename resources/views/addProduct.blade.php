@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
     <div style="width: 100vw; display: flex; justify-content: center; margin-top: 5vh">
-        <div style="width: 60%; background-color: rgb(237, 248, 197); padding: 20px">
+        <div style="width: 60%; background-color: rgb(255, 121, 121); padding: 20px; border-radius: 4px">
             <form action="/añadirProducto" method="POST">
                 <p
                     style="font-weight: bold; font-size: 18px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
