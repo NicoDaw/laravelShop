@@ -6,7 +6,7 @@
         <div
             style="display: flex; height: 150px; width: 80vw; background-color: rgb(255, 121, 121); padding: 10px; align-items: center; margin: 10px; border: 1px solid black; border-radius: 4px">
             <div style="margin-right: 10px">Id:{{ $objetoProducto[0]->id }}</div>
-            <img src="{{ $objetoProducto[0]->image }}" width="100"
+            <img src="{{ asset('storage/' . $objetoProducto[0]->image) }}" width="100"
                 style="border: 1px solid black; background-color: white; border-radius: 4px" />
             <div>
                 <div style="margin: 5px; color: black; font-weight: bold">
@@ -32,7 +32,7 @@
 
         </div>
         <div>
-            <form action="/actualizarProducto/{{ $objetoProducto[0]->id }}" method="POST">
+            <form action="/actualizarProducto/{{ $objetoProducto[0]->id }}" method="POST" enctype="multipart/form-data">
                 <p style="font-weight: bold; font-size: 25px">Editar Producto</p>
                 <div style="display: flex">
                     <div style="display: flex; align-items: center; margin-left: 25px">
@@ -46,9 +46,10 @@
                             style="height: 20px; margin-left: 6px" />
                     </div>
                     <div style="display: flex; align-items: center; margin-left: 25px">
-                        <p>Image: </p><input placeholder="{{ $objetoProducto[0]->image }}" type="text"
-                            value="{{ $objetoProducto[0]->image }}" name="image"
-                            style="height: 20px; margin-left: 6px" />
+                        <p>Imagen: </p>
+                        <input type="file" name="image" placeholder="{{ $objetoProducto[0]->image }}" type="text"
+                            value="{{ $objetoProducto[0]->image }}" name="image" style="height: 20px; margin-left: 6px"
+                            id="image" />
                     </div>
                     <select name="categorias_id" class="editarSelector">
                         <option value=""></option>

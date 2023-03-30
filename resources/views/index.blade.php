@@ -11,7 +11,7 @@
                     <div
                         style="padding-top: 20px;padding-bottom: 20px; width: 250px;  border-radius: 12px; display: flex; justify-content: center; align-items: center; flex-direction: column">
 
-                        <img src="{{ $producto->image }}" width="100"
+                        <img src="{{ asset('storage/' . $producto->image) }}" width="100"
                             style="border: 1px solid rgb(202, 202, 202); border-radius: 4px; background-color: white; height: 100px" />
                         <div>
                             <p

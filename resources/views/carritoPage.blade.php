@@ -6,7 +6,9 @@
         <?php foreach($carritoActual as $item): ?>
         <div class="product">
             <div style="imgContainer">
-                <img style="width: 120px; border-radius: 4px" src="<?php echo $item['product']['image']; ?>" alt="<?php echo $item['product']['nombreProducto']; ?>">
+                {{--  --}}
+                <img style="width: 120px; border-radius: 4px" src="{{ asset('storage/' . $item['product']['image']) }}"
+                    alt="<?php echo $item['product']['nombreProducto']; ?>">
                 <h3 style="text-align: center; font-size: 12px"><?php echo $item['product']['nombreProducto']; ?></h3>
             </div>
             <div class="quantity">

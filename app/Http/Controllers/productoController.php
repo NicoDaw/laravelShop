@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
@@ -56,7 +57,7 @@ class productoController extends Controller
         $producto->nombreProducto = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
-        $producto->image = $request->image;
+        $producto->image = $request->file('image')->store('', 'public');
         $producto->id_categoria = $request->categoria;
         $producto->save();
         $objetoProducto = Producto::all();
@@ -77,7 +78,11 @@ class productoController extends Controller
     }
     public function deleteProduct(Request $id)
     {
-        $producto = Producto::where('id', $id->id);
+
+        $producto = Producto::where('id', $id->id)->first();
+        if (Storage::exists('/public//' . $producto->image)) {
+            Storage::delete('/public//' . $producto->image);
+        }
         $producto->delete();
 
         return redirect()->to('eliminarProductos');
@@ -88,7 +93,10 @@ class productoController extends Controller
         $producto->nombreProducto = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
-        $producto->image = $request->image;
+        if (Storage::exists('/public//' . $producto->image)) {
+            Storage::disk('public')->delete($producto->image);
+        }
+        $producto->image = $request->file('image')->store('', 'public');
         $producto->id_categoria = $request->categorias_id;
         $producto->save();
         return redirect()->to('eliminarProductos');

@@ -2,7 +2,7 @@
 @section('content')
     <div style="width: 100vw; display: flex; justify-content: center; margin-top: 5vh">
         <div style="width: 60%; background-color: rgb(255, 121, 121); padding: 20px; border-radius: 4px">
-            <form action="/añadirProducto" method="POST">
+            <form action="/añadirProducto" method="POST" enctype="multipart/form-data">
                 <p
                     style="font-weight: bold; font-size: 18px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
                     Añadir Productos</p>
@@ -26,7 +26,8 @@
                 <div style="display: flex; align-items: center">
                     <p
                         style="font-weight: bold; font-size: 18px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-                        Imagen: </p><input type="text" name="image" style="height: 20px; margin-left: 6px" />
+                        Imagen: </p><input type="file" name="image" style="height: 20px; margin-left: 6px"
+                        id="image" />
                 </div>
 
                 <select name="categoria" id="categoria">

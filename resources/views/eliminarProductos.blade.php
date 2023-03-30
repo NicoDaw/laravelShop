@@ -22,7 +22,7 @@
                     <div
                         style="display: flex; height: 150px; width: 80vw; background-color: rgb(255, 121, 121); padding: 10px; align-items: center; margin: 10px; border: 1px solid black; border-radius: 4px">
                         <div style="margin-right: 10px">Id:{{ $producto->id }}</div>
-                        <img src="{{ $producto->image }}" width="100"
+                        <img src="{{ asset('storage/' . $producto->image) }}" width="100"
                             style="border: 1px solid black; background-color: white; border-radius: 4px" />
                         <div>
                             <div style="margin: 5px; color: black; font-weight: bold">
